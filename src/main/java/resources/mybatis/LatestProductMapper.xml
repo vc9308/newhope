@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codingvictor.newhope.dao.LatestProductDao">
+  <cache readOnly="true" eviction="FIFO"></cache>
+
+  <select id="getRowCount" resultType="int" useCache="true">
+	select count(*) from LatestProduct
+  </select>
+
+  <select id="selectByParams" resultType="com.codingvictor.newhope.entity.LatestProduct"
+	parameterType="map" useCache="true">
+	select * from LatestProduct order by PublishedDate desc limit ${offset}, ${size}
+  </select>
+
+  <select id="getRowCountOfThisHeading" resultType="int" parameterType="map">
+	select count(*) from LatestProduct where heading="${heading}"
+  </select>
+
+  <select id="getRowCountOfThisContent" resultType="int" parameterType="map">
+	select count(*) from LatestProduct where content="${content}"
+  </select>
+
+  <insert id="insertLatestProduct" parameterType="com.codingvictor.newhope.entity.LatestProduct"
+	flushCache="true" statementType="PREPARED" keyProperty="" keyColumn="" timeout="20">
+	insert into LatestProduct (author, publishedDate, modifiedDate, heading, content)
+	values (#{author}, #{publishedDate}, #{modifiedDate}, #{heading}, #{content});
+  </insert>
+	
+  <update id="updateLatestProduct"
+	parameterType="com.codingvictor.newhope.entity.LatestProduct"
+	flushCache="true" statementType="PREPARED" timeout="20">
+	update LatestProduct set
+	  author = #{author},
+	  modifiedDate = #{modifiedDate},
+	  heading = #{heading},
+      content = #{content}
+    where id = #{id}
+  </update>
+	
+  <select id="selectLatestProductById" parameterType="map"
+	resultType="com.codingvictor.newhope.entity.LatestProduct">
+	select * from LatestProduct where id = ${id}  
+  </select>
+  
+  <delete id="deleteAnLatestProduct" parameterType="map">
+    delete from LatestProduct where id = ${id}
+  </delete>
+</mapper>

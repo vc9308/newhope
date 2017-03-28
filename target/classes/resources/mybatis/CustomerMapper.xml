@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codingvictor.newhope.dao.CustomerDao">
+  <cache readOnly="true" eviction="FIFO"></cache>
+  
+  <insert id="insert" parameterType="com.codingvictor.newhope.entity.Customer"
+		flushCache="true" statementType="PREPARED" keyProperty="" keyColumn=""
+		timeout="20">
+		insert into Customer(email, password, givenName, familyName, country, province, phoneNumber, companyName, companyType, gender, salt) values (#{email}, #{password}, #{givenName}, #{familyName}, #{country}, #{province}, #{phoneNumber}, #{companyName}, #{companyType}, #{gender}, #{salt})
+  </insert>
+  
+</mapper>

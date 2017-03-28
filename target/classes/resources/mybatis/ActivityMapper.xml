@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.codingvictor.newhope.dao.ActivityDao">
+	<cache readOnly="true" size="500" eviction="FIFO"></cache>
+
+	<select id="getRowCount" resultType="int" useCache="true">
+		select count(*) from Activity
+	</select>
+
+	<select id="selectByParams" resultType="com.codingvictor.newhope.entity.Activity"
+		parameterType="map" useCache="true">
+		select * from Activity order by PublishedDate desc limit ${offset}, ${size}
+	</select>
+
+	<select id="getRowCountOfThisHeading" resultType="int"
+		parameterType="map">
+		select count(*) from Activity where heading="${heading}"
+	</select>
+
+	<select id="getRowCountOfThisContent" resultType="int"
+		parameterType="map">
+		select count(*) from Activity where content="${content}"
+	</select>
+
+	<insert id="insertActivity" parameterType="com.codingvictor.newhope.entity.Activity"
+		flushCache="true" statementType="PREPARED" keyProperty="" keyColumn=""
+		timeout="20">
+		insert into Activity (author, publishedDate, modifiedDate, heading, content)
+		values
+		(#{author}, #{publishedDate}, #{modifiedDate}, #{heading}, #{content});
+	</insert>
+	
+	<update id="updateActivity" parameterType="com.codingvictor.newhope.entity.Activity"
+	  flushCache="true" statementType="PREPARED" timeout="20">
+	  update Activity set
+	    author = #{author},
+	    modifiedDate = #{modifiedDate},
+	    heading = #{heading},
+        content = #{content}
+      where id = #{id}
+    </update>
+	
+	<select id="selectActivityById" parameterType="map"
+      resultType="com.codingvictor.newhope.entity.Activity">
+      select * from Activity where id = ${id}
+    </select>
+    
+    <delete id="deleteAnActivity" parameterType="map">
+      delete from Activity where id = ${id}
+    </delete>
+</mapper>
+
