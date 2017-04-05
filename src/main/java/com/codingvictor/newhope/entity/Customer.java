@@ -1,7 +1,6 @@
 package com.codingvictor.newhope.entity;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -16,8 +15,9 @@ public class Customer  {
 	
 	@NotBlank(message="{password.not.blank}")
 	@Length(min=8, message="{password.short}")
-	@Pattern(regexp = "(?=.*[a-zA-Z])", message = "{password.not.contains.letter}")
 	private String password;
+	
+	private String encryptedPassword;
 	
 	@NotBlank(message="{givenName.not.blank}")
 	private String givenName;
@@ -60,6 +60,14 @@ public class Customer  {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getEncryptedPassword() {
+		return encryptedPassword;
+	}
+
+	public void setEncryptedPassword(String encryptedPassword) {
+		this.encryptedPassword = encryptedPassword;
 	}
 
 	public String getGivenName() {

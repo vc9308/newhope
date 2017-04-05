@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.codingvictor.newhope.dao.StaffDao">
-	<cache readOnly="true" eviction="FIFO"></cache>
+  <cache readOnly="true" eviction="FIFO"></cache>
 
-	<select id="getRowCount" resultType="int" useCache="true">
-		select count(*) from Staff
-	</select>
+  <select id="getRowCount" resultType="int" useCache="true">
+	select count(*) from Staff
+  </select>
 	
-	<select id="getRowCountByEmailAndAdministrator" resultType="int"
-		parameterType="string" useCache="true">
-		select count(*) from Staff where email="#{0}" and job=2 LIMIT 1
-	</select>
+  <select id="getRowCountByEmailAndAdministrator" resultType="int"
+	parameterType="string" useCache="true">
+	select count(*) from Staff where email=#{0} and job=2 LIMIT 1
+  </select>
 	
-	<select id="selectByEmailandPassword" resultType="com.codingvictor.newhope.entity.Staff"
-		parameterType="map" useCache="true">
-		select * from Staff where email="${email}" and "password=${password}" LIMIT 1
-	</select>
+  <select id="selectByEmailandPassword" resultType="com.codingvictor.newhope.entity.Staff"
+	parameterType="map" useCache="true">
+	select * from Staff where email=#{email} and "password=#{password} LIMIT 1
+  </select>
+	
+  <insert id="insert" parameterType="com.codingvictor.newhope.entity.Staff"
+	flushCache="true" statementType="PREPARED" keyProperty="" keyColumn=""
+	timeout="20">
+	insert into Staff(
+	  email, encryptedPassword, givenName, familyName, country,
+	  province, phoneNumber, gender, birthdate, hiredate,
+	  job, department, salt) 
+	values(
+	  #{email}, #{encryptedPassword}, #{givenName}, #{familyName}, #{country},
+	  #{province}, #{phoneNumber}, #{gender}, #{birthdate}, #{hiredate},
+	  #{job}, #{department}, #{salt})
+  </insert>
+  
+  <select id="selectSaltByEmail" parameterType="java.lang.String"
+	resultType="string" timeout="20">
+    select salt from Staff where email = "${_parameter}"
+  </select>
+  
+  <select id="selectStaffByEmailAndEncryptedPassword" parameterType="map" statementType="PREPARED" timeout="20"
+    resultType="com.codingvictor.newhope.entity.Staff">
+    select email, givenName, familyName, gender from Staff where email = #{email} and encryptedPassword = #{encryptedPassword}
+  </select>
 
 
 </mapper>

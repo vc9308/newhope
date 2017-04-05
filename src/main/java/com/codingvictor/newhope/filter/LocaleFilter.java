@@ -20,7 +20,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
  */
 public class LocaleFilter implements Filter {
 
-    /**
+	/**
      * Default constructor. 
      */
     public LocaleFilter() {
@@ -39,10 +39,13 @@ public class LocaleFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
-		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
+//		ApplicationContext context = new ClassPathXmlApplicationContext("springmvc-servlet.xml");
+//	    Internationalization info = (Internationalization) context.getBean("Internationalization");
 		
-		String lang = "zh";
-    	String country = "CN";
+	    String lang = "zh";
+	    String country = "CN";
+	    
+		HttpServletRequest httpServletRequest = (HttpServletRequest)request;
     	    	
     	Cookie[] cookies = httpServletRequest.getCookies();
 		

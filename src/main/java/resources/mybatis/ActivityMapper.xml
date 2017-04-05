@@ -9,17 +9,17 @@
 
 	<select id="selectByParams" resultType="com.codingvictor.newhope.entity.Activity"
 		parameterType="map" useCache="true">
-		select * from Activity order by PublishedDate desc limit ${offset}, ${size}
+		select * from Activity order by PublishedDate desc limit #{offset}, #{size}
 	</select>
 
 	<select id="getRowCountOfThisHeading" resultType="int"
 		parameterType="map">
-		select count(*) from Activity where heading="${heading}"
+		select count(*) from Activity where heading=#{heading}
 	</select>
 
 	<select id="getRowCountOfThisContent" resultType="int"
 		parameterType="map">
-		select count(*) from Activity where content="${content}"
+		select count(*) from Activity where content=#{content}
 	</select>
 
 	<insert id="insertActivity" parameterType="com.codingvictor.newhope.entity.Activity"
@@ -42,11 +42,11 @@
 	
 	<select id="selectActivityById" parameterType="map"
       resultType="com.codingvictor.newhope.entity.Activity">
-      select * from Activity where id = ${id}
+      select * from Activity where id = #{id}
     </select>
     
     <delete id="deleteAnActivity" parameterType="map">
-      delete from Activity where id = ${id}
+      delete from Activity where id = #{id}
     </delete>
 </mapper>
 

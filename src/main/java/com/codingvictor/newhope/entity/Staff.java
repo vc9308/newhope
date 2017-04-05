@@ -3,7 +3,6 @@ package com.codingvictor.newhope.entity;
 import java.sql.Date;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -16,8 +15,10 @@ public class Staff {
 	private String email;
 	
 	@NotBlank(message="{password.not.blank}")
-	@Pattern(regexp="[0-9a-zA-Z]{6,30}", message="{password.not.valid}")
+	@Length(min=8, message="{password.short}")
 	private String password;
+	
+	private String encryptedPassword;
 	
 	@NotBlank(message="{givenName.not.blank}")
 	private String givenName;
@@ -25,31 +26,31 @@ public class Staff {
 	@NotBlank(message="{familyName.not.blank}")
 	private String familyName;
 	
-	@NotBlank(message="{country.not.blank}")
-	private String country;
+	@NotNull(message="{country.not.null}")
+	private short country;
 	
-	@NotBlank(message="{province.not.blank}")
-	private String province;
+	@NotNull(message="{province.not.null}")
+	private short province;
 	
 	@NotBlank(message="{phoneNumber.not.blank}")
-	@Length(min=11, max=12, message="{phoneNumber.not.valid}")
+	@Length(min=11, max=15, message="{phoneNumber.not.valid}")
 	private String phoneNumber;
 	
 	@NotNull(message="{gender.not.null}")
 	private byte gender;
 	
-	@NotBlank(message="{birthdate.not.blank}")
 	private Date birthdate;
 	
-	@NotBlank(message="{hiredate.not.blank}")
 	private Date hiredate;
 	
 	@NotNull(message="{job.not.null}")
 	private byte job;
 	
-	@NotNull(message="{deparment.not.null}")
+	@NotNull(message="{department.not.null}")
 	private byte department;
 
+	private String salt;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -64,6 +65,14 @@ public class Staff {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEncryptedPassword() {
+		return encryptedPassword;
+	}
+
+	public void setEncryptedPassword(String encryptedPassword) {
+		this.encryptedPassword = encryptedPassword;
 	}
 
 	public String getGivenName() {
@@ -82,19 +91,19 @@ public class Staff {
 		this.familyName = familyName;
 	}
 
-	public String getCountry() {
+	public short getCountry() {
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(short country) {
 		this.country = country;
 	}
 
-	public String getProvince() {
+	public short getProvince() {
 		return province;
 	}
 
-	public void setProvince(String province) {
+	public void setProvince(short province) {
 		this.province = province;
 	}
 
@@ -144,6 +153,22 @@ public class Staff {
 
 	public void setDepartment(byte department) {
 		this.department = department;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+	@Override
+	public String toString() {
+		return "Staff [email=" + email + ", encryptedPassword=" + encryptedPassword + ", givenName=" + givenName
+				+ ", familyName=" + familyName + ", country=" + country + ", province=" + province + ", phoneNumber="
+				+ phoneNumber + ", gender=" + gender + ", birthdate=" + birthdate + ", hiredate=" + hiredate + ", job="
+				+ job + ", department=" + department + ", salt=" + salt + "]";
 	}
 	
 }

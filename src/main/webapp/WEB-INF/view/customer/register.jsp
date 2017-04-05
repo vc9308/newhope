@@ -153,9 +153,7 @@
       </div>
       
       <input class="btn btn-lg btn-primary btn-block" type="submit" value="注册" /><br />
-      <div class="error">${error }</div>
   </form>
   </div>
-  ${error }
 </body>
 </html>

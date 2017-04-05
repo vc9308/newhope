@@ -9,15 +9,15 @@
 
   <select id="selectByParams" resultType="com.codingvictor.newhope.entity.LatestProduct"
 	parameterType="map" useCache="true">
-	select * from LatestProduct order by PublishedDate desc limit ${offset}, ${size}
+	select * from LatestProduct order by PublishedDate desc limit #{offset}, #{size}
   </select>
 
   <select id="getRowCountOfThisHeading" resultType="int" parameterType="map">
-	select count(*) from LatestProduct where heading="${heading}"
+	select count(*) from LatestProduct where heading=#{heading}
   </select>
 
   <select id="getRowCountOfThisContent" resultType="int" parameterType="map">
-	select count(*) from LatestProduct where content="${content}"
+	select count(*) from LatestProduct where content=#{content}
   </select>
 
   <insert id="insertLatestProduct" parameterType="com.codingvictor.newhope.entity.LatestProduct"
@@ -39,10 +39,10 @@
 	
   <select id="selectLatestProductById" parameterType="map"
 	resultType="com.codingvictor.newhope.entity.LatestProduct">
-	select * from LatestProduct where id = ${id}  
+	select * from LatestProduct where id = #{id}  
   </select>
   
   <delete id="deleteAnLatestProduct" parameterType="map">
-    delete from LatestProduct where id = ${id}
+    delete from LatestProduct where id = #{id}
   </delete>
 </mapper>

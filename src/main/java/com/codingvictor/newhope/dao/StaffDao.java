@@ -5,8 +5,12 @@ import java.util.Map;
 import com.codingvictor.newhope.entity.Staff;
 
 public interface StaffDao {
-	
-	public int getRowCount();
+
+	public void insert(Staff staff);
+
+	public String selectSaltByEmail(String email);
+
+	public Staff selectStaffByEmailAndEncryptedPassword(Map<String, String> params);
 
 	public int getRowCountByEmailAndAdministrator(String email);
 

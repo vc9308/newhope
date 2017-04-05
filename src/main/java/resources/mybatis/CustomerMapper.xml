@@ -4,9 +4,19 @@
   <cache readOnly="true" eviction="FIFO"></cache>
   
   <insert id="insert" parameterType="com.codingvictor.newhope.entity.Customer"
-		flushCache="true" statementType="PREPARED" keyProperty="" keyColumn=""
-		timeout="20">
-		insert into Customer(email, password, givenName, familyName, country, province, phoneNumber, companyName, companyType, gender, salt) values (#{email}, #{password}, #{givenName}, #{familyName}, #{country}, #{province}, #{phoneNumber}, #{companyName}, #{companyType}, #{gender}, #{salt})
+	flushCache="true" statementType="PREPARED" keyProperty="" keyColumn=""
+	timeout="20">
+	insert into Customer(email, encryptedPassword, givenName, familyName, country, province, phoneNumber, companyName, companyType, gender, salt) values (#{email}, #{encryptedPassword}, #{givenName}, #{familyName}, #{country}, #{province}, #{phoneNumber}, #{companyName}, #{companyType}, #{gender}, #{salt})
   </insert>
+  
+  <select id="selectSaltByEmail" parameterType="java.lang.String"
+	resultType="string" timeout="20">
+    select salt from Customer where email = "${_parameter}"
+  </select>
+  
+  <select id="selectCustomerByEmailAndPassword" parameterType="map" statementType="PREPARED" timeout="20"
+    resultType="com.codingvictor.newhope.entity.Customer">
+    select email, givenName, familyName, gender from Customer where email = #{email} and encryptedPassword = #{encryptedPassword}
+  </select>
   
 </mapper>

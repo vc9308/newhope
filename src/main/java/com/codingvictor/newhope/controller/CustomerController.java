@@ -45,13 +45,9 @@ public class CustomerController {
 	public String doRegisterPage(@Valid Customer customer, BindingResult result,
 			@RequestParam String confirm, @RequestParam String password) {
 		
-		String lang = (String)request.getSession().getAttribute("lang");
-		
-		String country = (String)request.getSession().getAttribute("country");
-		
-		
-		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", 
-				new Locale(lang, country));
+		ResourceBundle bundle = ResourceBundle.getBundle("i18n/messages", new Locale(
+				(String)request.getSession().getAttribute("lang"), 
+				(String)request.getSession().getAttribute("country")));
 
 		Enumeration<String> requestParams = request.getParameterNames();
 		
@@ -94,28 +90,39 @@ public class CustomerController {
 		}
 	}
 	
+	//select
 	@RequestMapping("/login")
 	public String toSignInPage() {
 		return "/customer/login";
 	}
 	
 	@RequestMapping("/doLogin")
-	public String doSign() {
+	public String doSign(@RequestParam String email, @RequestParam String password) {
 		try {
+			service.selectCustomerByEmailAndPassword(email, password);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "/user/login";
+			request.setAttribute("error", e.getMessage());
+			return "/customer/login";
 		}
 		
 		return "/customer/login-complete";
+	}
+	
+	@RequestMapping("/home")
+	public String toHomePage() {
+		if (request.getSession().getAttribute(Global.Customer_SESSION_KEY) != null)
+		    return "/customer/home";
+		else
+		    return "redirect:/customer/login";
 	}
 	
 	@RequestMapping("/doLogout")
     public String doLoginOut(SessionStatus status) {
     	status.setComplete();
     	request.getSession().setAttribute(Global.Customer_SESSION_KEY, null);
-    	return "/customer/login";
+    	return "redirect:/";
 	}
 }
 

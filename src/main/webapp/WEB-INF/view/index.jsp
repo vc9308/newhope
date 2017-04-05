@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="st" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
   <title>新希望污水处理公司官网</title>
   <meta charset="UTF-8" />
@@ -43,8 +44,15 @@
       </li>
       <li><a href="#">行业动态</a></li>
       <li><a href="#">文献</a></li>
-      <li><a href="#">联系</a></li>
-      <li><a href="/user/home">后台入口</a></li>
+      <li><a href="customer-service/client">联系</a></li>
+      <li class="my-dropdown">
+        <a href="#" class="dropbtn dropdown-toggle">用户入口<span class="caret"></span></a>
+        <div class="dropdown-content">
+          <a href="<st:url value="/administrator/home"></st:url>">管理员</a>
+          <a href="<st:url value="/customer/home"></st:url>">顾客</a>
+          <a href="<st:url value="/staff/home"></st:url>">雇员</a>
+        </div>
+      </li>
     </ul>   
   </div>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
