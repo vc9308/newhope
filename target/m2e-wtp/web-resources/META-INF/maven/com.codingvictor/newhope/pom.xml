@@ -22,6 +22,7 @@
 		<slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>
 	</properties>
 	<dependencies>
+	
 		<!-- Spring Framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>

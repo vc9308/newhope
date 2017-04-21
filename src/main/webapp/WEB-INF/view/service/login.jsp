@@ -8,6 +8,7 @@
   <title>登录用户</title>
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
   <link rel="stylesheet" type="text/css" href="../css/main.css" />
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <style>
       .error {
         text-align: center;

@@ -5,9 +5,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>修改最新产品信息</title>
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
   <link rel="stylesheet" type="text/css" href="../css/main.css" />
-  <title>修改最新产品信息</title>
   <style>
     .error {
       text-align: center;

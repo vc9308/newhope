@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>找回密码</title>
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
   <link rel="stylesheet" type="text/css" href="../css/main.css" />
   <script src="../js/angular.min.js"></script>

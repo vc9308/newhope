@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title>客服系统</title>
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <style>
     .container {

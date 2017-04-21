@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title>管理主页</title>
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
 </head>
 

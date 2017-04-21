@@ -1,12 +1,13 @@
 package com.codingvictor.newhope.service;
 
+import javax.servlet.http.*;
+
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import com.google.gson.JsonObject;
 

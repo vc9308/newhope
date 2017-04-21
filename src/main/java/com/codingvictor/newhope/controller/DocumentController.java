@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/successful-cases")
-public class SucessfulCaseController {
-	@RequestMapping("/more")
-	public String toMorePage() {
-		return "/successful-cases/more";
+public class DocumentController {
+    
+	@RequestMapping("/documents")
+	public String toDocumentPage() {
+		return "/documents";
 	}
 }

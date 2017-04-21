@@ -40,7 +40,7 @@
 	<property name="defaultEncoding" value="UTF-8"></property>
   </bean>
 
-  <!-- Resource View Resolver  -->
+  <!-- Resource View Resolver -->
 
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/view/" />

@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
   <link rel="stylesheet" type="text/css" href="../css/main.css" />
   <title>发表动态</title>
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <style>
     .error {
       text-align: center;

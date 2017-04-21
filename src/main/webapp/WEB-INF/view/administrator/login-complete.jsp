@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="5;url=<st:url value="/administrator/home"></st:url>">
   <title>登录完成</title>
+  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
   <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
 </head>
 <body>

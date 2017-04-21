@@ -5,10 +5,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>水处理</title>
-  <link rel="icon" href="../icon/new_hope_icon_30x30.png" />
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap4.css" />
-  <link rel="stylesheet" type="text/css" href="../css/main.css" />
+  <title>产品</title>
+  <link rel="icon" href="./icon/new_hope_icon_30x30.png" />
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap4.css" />
+  <link rel="stylesheet" type="text/css" href="./css/main.css" />
   <style>
     article {
       margin-top: 20px;
@@ -20,7 +20,7 @@
 
 <body>
   <header class="slogan-logo" style="text-align:center;">
-    <img alt="New Hope Big Logo" src="../logo/new-hope-logo-original.png"/>
+    <img alt="New Hope Big Logo" src="./logo/new-hope-logo-original.png"/>
   </header>
   <div class="nav">
     <ul>
@@ -49,15 +49,12 @@
       </li>
     </ul>   
   </div>
-  <article class="service-list">
-    <ul>
-      <li>有机污泥脱水絮凝剂：改善其原工艺加铁盐的缺点，水质更优，利于再处理；污泥主要是碳水化合物，便于深加工。<br />&nbsp;
-      <li>低温低浊度水的处理絮凝剂：安全，除浊和悬浮能力强，弥补PAM在此方面的不足。<br />&nbsp;
-      <li>絮凝沉降方面：全部和部分取代无机盐，利于中水回用和废水处理的运作。<br />&nbsp;
-      <li>膜处理方面：全方位提供过行和维护的相关产品。<br />&nbsp;
-      <li>其它方面：水处理的特种行业和特种污染物的去除药剂。COD去除剂；氨氮去除剂；除臭剂；除磷剂。<br />&nbsp;
-      <li>专业的水处理实验室，满足其不同的水质分析和工艺方案的处理。<br />&nbsp;
-    </ul>
+  <article>
+    4.1. 絮凝剂：以行业的商品名称
+4.2. 消泡剂：主成份类别名称
+4.3. 清洗剂：以行业的商品名称
+4.4. 特种助剂：COD去除剂；氨氮去除剂；除臭剂；除磷剂；重属离子捕捉剂；除浊剂；净水剂；还原剂等
+4.5. 膜用药剂：膜的酸性清洗，碱性清洗和微生物清洗；阻垢剂，絮凝剂，杀菌剂等。
   </article>
   <div class="footer">
     <div class="content fade-in-1500ms">
